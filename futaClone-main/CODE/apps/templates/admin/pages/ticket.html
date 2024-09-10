@@ -1,0 +1,388 @@
+{% extends 'admin/layouts.html' %} 
+{% block content %} 
+<section class="data ">
+    <div class="data-overlay"></div>
+    <div class="data-confirm">
+        <div class="data-popup-title">Xác nhận</div>
+        <div class="data-confirm-icon"><i class='bx bxs-message-rounded-x'></i></div>
+        <p class="data-confirm-txt">
+            Bạn có chắc chắn muốn xóa dữ liệu này không?
+        </p>
+        <p class="data-confirm-txt">Hành động này sẽ xóa dữ liệu và có thể gây ra lỗi trong
+            hệ thống!</p>
+        <div class="data-confirm-button">
+            <div class="data-confirm-cancel">Cancel</div>
+            <div class="data-confirm-remove">Accept</div>
+        </div>
+    </div>
+    
+    <div class="data-popup">
+        <div class="data-popup-title">Sửa dữ liệu</div>
+        <div class="data-popup-close"><i class='bx bx-x'></i></div>
+        <form action="" class="data-form admin-form form-validation">
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-phone">Mã đơn vé</label>
+                <input class="data-form-input" type="text" name="customer-madon" id="customer-madon" readonly>
+            </div>
+
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-phone">Số điện thoại</label>
+                <input class="data-form-input" type="text" name="customer-phone" id="customer-phone">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-mail">MaChuyen</label>
+                <input class="data-form-input" type="text" name="customer-MaChuyen" id="customer-MaChuyen">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-name">Ghế</label>
+                <input class="data-form-input" type="text" name="customer-ghe" id="customer-ghe">
+            </div>
+            <div class="form-submit data-form-submit">
+                <div class="data-form-btn data-form-clear">clear all</div>
+                <div class="data-form-btn data-form-accept form-submit-validation" id = "accept_update_donve">accept</div>
+            </div>
+        </form>
+    </div>
+
+    <div class="data-popup_add">
+        <div class="data-popup-title">Thêm dữ liệu</div>
+        <div class="data-popup-close2"><i class='bx bx-x'></i></div>
+        <form action="" class="data-form admin-form form-validation">
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-phone">Số tài khoản</label>
+                <input class="data-form-input" type="text" name="customer-insert-stk" id="customer-insert_stk">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-phone">Số điện thoại</label>
+                <input class="data-form-input" type="text" name="customer-insert-phone" id="customer-insert_phone">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-mail">MaChuyen</label>
+                <input class="data-form-input" type="text" name="customer-insert-machuyen" id="customer-insert_machuyen">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-name">Ghế</label>
+                <input class="data-form-input" type="text" name="customer-insert-ghe" id="customer-insert_ghe">
+            </div>
+            <div class="form-submit data-form-submit">
+                <div class="data-form-btn data-form-clear">clear all</div>
+                <div class="data-form-btn data-form-accept form-submit-validation" id = "accept_accept_donve">accept</div>
+            </div>
+        </form>
+    </div>
+
+    <div class="data-wrapper">
+        <div class="data-control">
+            <div class="data-control-all">
+                <div class="data-control-input">
+                    <input type="checkbox" name="" id="check-all">
+                </div>
+                <label for="check-all">select all</label>
+                <div class="data-control-count">(0 selected)</div>
+            </div>
+            <div class="data-control-add">
+                <div class="data-control-add-btn">
+                    <i class='bx bx-book-add'></i>
+                    <span>Thêm mới</span>
+                </div>
+            </div>
+        </div>
+        <style>
+            .data-title .data-title-name{
+                width: 200px;
+            }
+            .data-value .data-value-name{
+                width: 200px;
+                font-weight: 600;
+            }
+
+            .data-title .data-title-dob{
+                width: 100px;
+            }
+            .data-value .data-value-dob{
+                width: 100px;
+            }
+
+            .data-title .data-title-mail{
+                width: 200px;
+            }
+            .data-value .data-value-mail{
+                width: 200px;
+            }
+
+            .data-title .data-title-address{
+                width: 350px;
+            }
+            .data-value .data-value-address{
+                width: 350px;
+            }
+
+            .data-title .data-title-pass{
+                width: 100px;
+                
+            }
+            .data-value .data-value-pass{
+                width: 100px;
+                margin-left: 50px;
+            }
+        </style>
+        <div class="data-table">
+            <ul class="data-box data-title">
+                <li class="data-title-item data-title-check">chọn</li>
+                <li class="data-title-item data-title-name" style="width: 170px;">Madon</li>
+                <li class="data-title-item data-title-dob" style="width: 150px;">STK</li>
+                <li class="data-title-item data-title-cmnd" style="width: 150px;">SDT</li>
+                <li class="data-title-item data-title-phone" style="width: 150px;">MaChuyen</li>
+                <li class="data-title-item data-title-mail" style="width: 300px;">Ghe</li>
+                <li class="data-title-item data-title-address" style="width: 100px;">TongGia</li>
+                <li class="data-title-item data-title-pass" style="width: 100px;">NgayTao</li>
+                <li class="data-title-item data-title-action">Hành động</li>
+            </ul>
+            <div class="data-box data-value">
+                {% for donve in donve %}
+                <ul class="data-value-row">
+                    <li class="data-value-item data-value-check"><input type="checkbox" name="" id=""></li>
+                    <li class="data-value-item data-value-name" style="width: 170px;">{{ donve.Madon }}</li>
+                    <li class="data-value-item data-value-dob" style="width: 150px;">{{ donve.STK }}</li>
+                    <li class="data-value-item data-value-cmnd" style="width: 150px;">{{ donve.SDT }}</li>
+                    <li class="data-value-item data-value-phone" style="width: 150px; text-align: center;">{{ donve.MaChuyen }}</li>
+                    <li class="data-value-item data-value-mail" style="width: 300px;">
+                        {% for seat in donve.Ghe %}
+                            {{ seat }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                    <li class="data-value-item data-value-address" style="width: 100px;text-align: center;">{{ donve.TongGia }}</li>
+                    <li class="data-value-item data-value-pass" style="width: 100px;">{{ donve.NgayTao }}</li>
+                    <li class="data-value-item data-value-action">
+                        <div class="data-value-action-button">
+                            <div class="data-value-action-edit" id="edit-btn">
+                                <span data-Madon="{{ donve.Madon }}">sửa</span>
+                                <i class='bx bxs-edit'></i>
+                            </div>
+                            <div class="data-value-action-remove" data-Madon="{{ donve.Madon }}">
+                                <span>xóa</span>
+                                <i class='bx bxs-trash'></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="data-navigation"></div>
+    </div>
+</section>
+<!-- error -->
+<section class="error">
+    <ul class="error-list">
+        <li class="error-item">fs</li>
+    </ul>
+</section>
+<script>
+    let dataAdmin = document.querySelector('.data');
+
+    let dataAddBtn = document.querySelector('.data-control-add');
+    let dataEditBtn = document.querySelectorAll('.data-value-action-edit');
+    let dataRemoveBtn = document.querySelectorAll('.data-value-action-remove');
+
+    let closePopup = document.querySelector('.data-popup-close');
+    let closePopup2 = document.querySelector('.data-popup-close2');
+    let closeConfirm = document.querySelector('.data-confirm-cancel');
+
+    dataAddBtn.onclick = () => {
+        dataAdmin.classList.add('data-popup-active2');
+        
+    }
+
+    dataEditBtn.forEach((element, index) => {
+        element.onclick = function () {
+            dataAdmin.classList.add('data-popup-active');
+            var Madon = this.querySelector('span').dataset.madon;
+            fetch('/update_data_donve?madon=' + Madon, {
+                method: 'POST' // Thêm method POST vào fetch
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const firstRecord = data[0];
+                    if (firstRecord) {
+                        // Set values to your HTML elements
+                        document.getElementById('customer-madon').value = firstRecord.Madon;
+                        document.getElementById('customer-phone').value = firstRecord.SDT;
+                        document.getElementById('customer-MaChuyen').value = firstRecord.MaChuyen;
+                        document.getElementById('customer-ghe').value = firstRecord.Ghe.join(', '); // Join Ghe list into a string
+                    } else {
+                        console.log("No data found");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+
+        };
+    });
+
+    dataRemoveBtn.forEach((element, index) => {
+        element.onclick = () => {
+            dataAdmin.classList.add('data-confirm-active');
+        }
+    })
+
+    closePopup.onclick = () => {
+        dataAdmin.classList.remove('data-popup-active');
+    }
+
+    closePopup2.onclick = () => {
+        dataAdmin.classList.remove('data-popup-active2');
+    }
+
+
+    closeConfirm.onclick = () => {
+        dataAdmin.classList.remove('data-confirm-active');
+    }
+</script>
+<script>
+    var acceptDonveButton = document.getElementById("accept_update_donve");
+
+    acceptDonveButton.addEventListener("click", function () {
+        updateDonve();
+    });
+
+    function updateDonve() {
+    // Lấy giá trị từ các input trong form
+    var madon = document.getElementById('customer-madon').value;
+    var sdt = document.getElementById('customer-phone').value;
+    var machuyen = document.getElementById('customer-MaChuyen').value;
+    var selectedSeats = []; // Tạo một mảng để chứa các ghế được chọn
+
+    // Lấy danh sách các ghế được chọn từ một ô đầu vào nhiều lựa chọn
+    var seatsString = document.getElementById('customer-ghe').value;
+    var selectedSeats = seatsString.split(', ');
+
+    // Gửi dữ liệu lên máy chủ
+    fetch('/update_donve', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            madon: madon,
+            sdt: sdt,
+            machuyen: machuyen,
+            ghe: selectedSeats // Truyền danh sách các ghế được chọn
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Cập nhật dữ liệu thành công");
+            window.location.reload();
+        } 
+        else if(data.ghe){
+            alert("Ghế `" + data.ghe + "` đã được đặt");
+        }
+        else {
+            alert("Cập nhật dữ liệu thất bại: " + data.error);
+            console.error("Cập nhật dữ liệu thất bại:", data.error);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+<script>
+    var acceptDonveButton = document.getElementById("accept_accept_donve");
+
+    acceptDonveButton.addEventListener("click", function () {
+        insertDonve();
+    });
+
+    function insertDonve() {
+    const stk = document.getElementById('customer-insert_stk').value;
+    const phone = document.getElementById('customer-insert_phone').value;
+    const machuyen = document.getElementById('customer-insert_machuyen').value;
+    var selectedSeats = []; // Tạo một mảng để chứa các ghế được chọn
+
+    // Lấy danh sách các ghế được chọn từ một ô đầu vào nhiều lựa chọn
+    var seatsString = document.getElementById('customer-insert_ghe').value;
+    var selectedSeats = seatsString.split(', ');
+
+    // Gửi dữ liệu lên máy chủ
+    fetch('/insert_data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            stk: stk,
+            phone: phone,
+            machuyen: machuyen,
+            ghe: selectedSeats // Truyền danh sách các ghế được chọn
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Thêm dữ liệu thành công");
+            window.location.reload();
+        } 
+        // else if(data.ghe){
+        //     alert("Ghế `" + data.ghe + "` đã được đặt");
+        // }
+        else {
+            alert("Ghế đã tồn tại trong chuyến xe");
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+        
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var deleteButtons = document.querySelectorAll('.data-value-action-remove');
+
+        deleteButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var madon = button.dataset.madon;
+
+                // Hiển thị cửa sổ xác nhận
+                var confirmPopup = document.querySelector('.data-confirm');
+                confirmPopup.classList.add('data-confirm-active');
+
+                // Gắn sự kiện click cho nút "Accept"
+                var acceptButton = document.querySelector('.data-confirm-remove');
+                acceptButton.addEventListener('click', function () {
+                    // Gửi yêu cầu DELETE khi người dùng nhấn "Accept"
+                    fetch('/delete_donve', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            madon: madon
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert("Xóa người dùng thành công");
+                                window.location.reload();
+                            } else {
+                                alert("Xóa người dùng thất bại: " + data.error);
+                                console.error("Xóa người dùng thất bại:", data.error);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+
+                    // Đóng cửa sổ xác nhận
+                    confirmPopup.classList.remove('data-confirm-active');
+                });
+
+                // Gắn sự kiện click cho nút "Cancel"
+                var cancelButton = document.querySelector('.data-confirm-cancel');
+                cancelButton.addEventListener('click', function () {
+                    // Đóng cửa sổ xác nhận nếu người dùng nhấn "Cancel"
+                    confirmPopup.classList.remove('data-confirm-active');
+                });
+            });
+        });
+    }); 
+</script>
+{% endblock %}

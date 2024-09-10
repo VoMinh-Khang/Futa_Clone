@@ -1,0 +1,461 @@
+{% extends 'admin/layouts.html' %}
+{% block content %}
+<section class="data ">
+    <div class="data-overlay"></div>
+    <div class="data-confirm">
+        <div class="data-popup-title">Xác nhận</div>
+        <div class="data-confirm-icon"><i class='bx bxs-message-rounded-x'></i></div>
+        <p class="data-confirm-txt">
+            Bạn có chắc chắn muốn xóa dữ liệu này không?
+        </p>
+        <p class="data-confirm-txt">Hành động này sẽ xóa dữ liệu và có thể gây ra lỗi trong
+            hệ thống!</p>
+        <div class="data-confirm-button">
+            <div class="data-confirm-cancel">Cancel</div>
+            <div class="data-confirm-remove">Accept</div>
+        </div>
+    </div>
+    <div class="data-popup">
+        <div class="data-popup-title">Sửa dữ liệu</div>
+        <div class="data-popup-close"><i class='bx bx-x'></i></div>
+        <form action="" class="data-form admin-form form-validation">
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="chuyenxe-machuyen">Mã chuyến</label>
+                <input class="data-form-input" type="text" name="chuyenxe-machuyen" id="chuyenxe-machuyen" readonly>
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="chuyenxe-diadiemdi">Địa điểm đi</label>
+                <input class="data-form-input" type="text" name="chuyenxe-diadiemdi" id="chuyenxe-diadiemdi">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="chuyenxe-diadiemden">Địa điểm đến</label>
+                <input class="data-form-input" type="text" name="chuyenxe-diadiemden" id="chuyenxe-diadiemden">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="chuyenxe-giokhoihanh">Giờ khởi hành</label>
+                <input class="data-form-input" type="text" name="chuyenxe-giokhoihanh" id="chuyenxe-giokhoihanh">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="chuyenxe-gioden">Giờ đến</label>
+                <input class="data-form-input" type="text" name="chuyenxe-gioden" id="chuyenxe-gioden">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="chuyenxe-ngaydi">Ngày đi</label>
+                <input class="data-form-input" type="text" name="chuyenxe-ngaydi" id="chuyenxe-ngaydi">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="chuyenxe-gia">Giá</label>
+                <input class="data-form-input" type="text" name="chuyenxe-gia" id="chuyenxe-gia">
+            </div>
+            <div class="form-submit data-form-submit">
+                <div class="data-form-btn data-form-clear">Clear all</div>
+                <div class="data-form-btn data-form-accept form-submit-validation" id="accept_update_chuyenxe">Accept
+                </div>
+            </div>
+        </form>
+    </div>
+<style>
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+    }
+    .data-form-group:first-child {
+        margin-right: 30px; 
+    }
+    </style>
+
+    <div class="data-popup_add">
+        <div class="data-popup-title">Thêm dữ liệu</div>
+        <div class="data-popup-close2"><i class='bx bx-x'></i></div>
+        <form action="" class="data-form admin-form form-validation">
+            <div class="form-group data-form-group" style="width: 100%;">
+                <label class="data-form-label" for="chuyenxe-machuyen">Tên chuyến xe</label>
+                <select class="data-form-input" name="insert_chuyenxe-tenchuhyen" id="insert_chuyenxe-tenchuhyen">
+                    <option value=""></option>
+                    {% for tx in tentuyenxe %}
+                        <option value="{{ tx.TenTuyenXe }}">{{ tx.TenTuyenXe }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group data-form-group" style = "width: 100%;">
+                <label class="data-form-label" for="chuyenxe-diadiemden">Loại xe</label>
+                <select class="data-form-input" name="chuyenxe-diadiemden" id="insert_chuyenxe-loaixe">
+                    <option value="Limousine">Limousine</option>
+                    <option value="Giường">Giường</option>
+                </select>
+            </div>
+            <div class="form-group data-form-group" style = "width: 100%;">
+                <label class="data-form-label" for="chuyenxe-diadiemdi">Địa điểm đi</label>
+                <input class="data-form-input" type="text" name="chuyenxe-diadiemdi" id="insert_chuyenxe-diadiemdi">
+            </div>
+            <div class="form-group data-form-group" style = "width: 100%;">
+                <label class="data-form-label" for="chuyenxe-diadiemden">Địa điểm đến</label>
+                <input class="data-form-input" type="text" name="chuyenxe-diadiemden" id="insert_chuyenxe-diadiemden">
+            </div>
+            <div class="form-row">
+                <div class="form-group data-form-group" style="width: 285px;">
+                    <label class="data-form-label" for="chuyenxe-giokhoihanh">Giờ khởi hành</label>
+                    <select class="data-form-input" name="chuyenxe-giokhoihanh" id="insert_chuyenxe-giokhoihanh">
+                        <option value="08:00">08:00</option>
+                        <option value="09:30">09:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:30">22:30</option>
+                    </select>
+                </div>
+                <div class="form-group data-form-group" style = "width: 285px;">
+                    <label class="data-form-label" for="chuyenxe-gioden">Giờ đến</label>
+                    <input class="data-form-input" type="text" name="chuyenxe-gioden" id="insert_chuyenxe-gioden">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group data-form-group" style = "width: 285px;">
+                    <label class="data-form-label" for="chuyenxe-ngaydi">Ngày đi</label>
+                    <input class="data-form-input" type="date" name="chuyenxe-ngaydi" id="insert_chuyenxe-ngaydi">
+                </div>
+                <div class="form-group data-form-group" style = "width: 285px;">
+                    <label class="data-form-label" for="chuyenxe-gia">Giá</label>
+                    <input class="data-form-input" type="text" name="chuyenxe-gia" id="insert_chuyenxe-gia">
+                </div>
+            </div>
+            <div class="form-submit data-form-submit">
+                <div class="data-form-btn data-form-clear">Clear all</div>
+                <div class="data-form-btn data-form-accept form-submit-validation" id="accept_insert_chuyenxe">Accept
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="data-wrapper">
+        <div class="data-control">
+            <div class="data-control-all">
+                <div class="data-control-input">
+                    <input type="checkbox" name="" id="check-all">
+                </div>
+                <label for="check-all">select all</label>
+                <div class="data-control-count">(0 selected)</div>
+            </div>
+            <div class="data-control-add">
+                <div class="data-control-add-btn">
+                    <i class='bx bx-book-add'></i>
+                    <span>Thêm mới</span>
+                </div>
+            </div>
+        </div>
+        <style>
+            .data-title .data-title-name {
+                width: 200px;
+            }
+
+            .data-value .data-value-name {
+                width: 200px;
+                font-weight: 600;
+            }
+
+            .data-title .data-title-dob {
+                width: 100px;
+            }
+
+            .data-value .data-value-dob {
+                width: 100px;
+            }
+
+            .data-title .data-title-mail {
+                width: 200px;
+            }
+
+            .data-value .data-value-mail {
+                width: 200px;
+            }
+
+            .data-title .data-title-address {
+                width: 350px;
+            }
+
+            .data-value .data-value-address {
+                width: 350px;
+            }
+
+            .data-title .data-title-pass {
+                width: 100px;
+
+            }
+
+            .data-value .data-value-pass {
+                width: 100px;
+                margin-left: 50px;
+            }
+        </style>
+        <div class="data-table">
+            <ul class="data-box data-title">
+                <li class="data-title-item data-title-name" style="width: 120px;">Mã chuyến</li>
+                <li class="data-title-item data-title-dob" style="width: 220px;">Tên chuyến xe</li>
+                <li class="data-title-item data-title-cmnd" style="width: 170px;">Địa điểm đi</li>
+                <li class="data-title-item data-title-phone" style="width: 170px;">Địa điểm đến</li>
+                <li class="data-title-item data-title-mail" style="width: 90px;">Loại xe</li>
+                <li class="data-title-item data-title-mail" style="width: 70px;">SL ghế trống</li>
+                <li class="data-title-item data-title-mail" style="width: 90px;">Giờ kh</li>
+                <li class="data-title-item data-title-mail" style="width: 100px;">Ngày đi</li>
+                <li class="data-title-item data-title-mail" style="width: 120px;">Giá</li>
+                <li class="data-title-item data-title-action" style="width: 120px;">Hành động</li>
+            </ul>
+            <div class="data-box data-value">
+                {% for chuyenxe in chuyenxe %}
+                <ul class="data-value-row">
+                    <li class="data-value-item data-value-name" style="width: 120px;">{{ chuyenxe.MaChuyen }}</li>
+                    <li class="data-value-item data-value-dob" style="width: 200px;">{{ chuyenxe.TenChuyenXe }}</li>
+                    <li class="data-value-item data-value-cmnd" style="width: 170px;">{{ chuyenxe.DiaDiemDi }}</li>
+                    <li class="data-value-item data-value-phone" style="width: 185px;">{{ chuyenxe.DiaDiemDen }}</li>
+                    <li class="data-value-item data-value-mail" style="width: 100px;">{{ chuyenxe.LoaiXe }}</li>
+                    <li class="data-value-item data-value-mail" style="width: 60px;">{{ chuyenxe.SoLuongGheTrong }}</li>
+                    <li class="data-value-item data-value-mail" style="width: 80px;">{{ chuyenxe.GioKhoiHanh }}</li>
+                    <li class="data-value-item data-value-mail" style="width: 100px;">{{ chuyenxe.NgayDi }}</li>
+                    <li class="data-value-item data-value-mail" style="width: 80px;">{{ chuyenxe.Gia }}</li>
+                    <li class="data-value-item data-value-action">
+                        <div class="data-value-action-button">
+                            <div class="data-value-action-edit" id="edit-btn">
+                                <span data-Machuhyen="{{chuyenxe.MaChuyen }}">sửa</span>
+                                <i class='bx bxs-edit'></i>
+                            </div>
+                            <div class="data-value-action-remove" data-Machuyen="{{ chuyenxe.MaChuyen }}"
+                                style="margin-left: 10px;">
+                                <span>xóa</span>
+                                <i class='bx bxs-trash'></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="data-navigation"></div>
+    </div>
+</section>
+<!-- error -->
+<section class="error">
+    <ul class="error-list">
+        <li class="error-item">fs</li>
+    </ul>
+</section>
+<script>
+    // Lấy ngày hiện tại
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); // Tháng bắt đầu từ 0
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    // Đặt giá trị tối thiểu cho trường nhập ngày
+    document.getElementById("insert_chuyenxe-ngaydi").setAttribute("min", today);
+</script>
+<script>
+    let dataAdmin = document.querySelector('.data');
+    let dataAddBtn = document.querySelector('.data-control-add');
+    let dataEditBtn = document.querySelectorAll('.data-value-action-edit');
+    let dataRemoveBtn = document.querySelectorAll('.data-value-action-remove');
+
+    let closePopup = document.querySelector('.data-popup-close');
+    let closePopup2 = document.querySelector('.data-popup-close2');
+    let closeConfirm = document.querySelector('.data-confirm-cancel');
+
+    dataAddBtn.onclick = () => {
+        dataAdmin.classList.add('data-popup-active2');
+
+    }
+
+    dataEditBtn.forEach((element, index) => {
+        element.onclick = function () {
+            dataAdmin.classList.add('data-popup-active');
+            var machuhyen = this.querySelector('span').dataset.machuhyen;
+            fetch('/update_data_chuyenxe?machuyen=' + machuhyen, {
+                method: 'POST' // Thêm method POST vào fetch
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const firstRecord = data[0];
+                    if (firstRecord) {
+                        document.getElementById('chuyenxe-machuyen').value = firstRecord.MaChuyen;
+                        document.getElementById('chuyenxe-diadiemdi').value = firstRecord.DiaDiemDi;
+                        document.getElementById('chuyenxe-diadiemden').value = firstRecord.DiaDiemDen;
+                        document.getElementById('chuyenxe-giokhoihanh').value = firstRecord.GioKhoiHanh;
+                        document.getElementById('chuyenxe-gioden').value = firstRecord.GioDen;
+                        document.getElementById('chuyenxe-ngaydi').value = firstRecord.NgayDi;
+                        document.getElementById('chuyenxe-gia').value = firstRecord.Gia;
+                        } 
+                    else {
+                        console.log("No data found");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+
+        };
+    });
+
+    dataRemoveBtn.forEach((element, index) => {
+        element.onclick = () => {
+            dataAdmin.classList.add('data-confirm-active');
+        }
+    })
+
+    closePopup.onclick = () => {
+        dataAdmin.classList.remove('data-popup-active');
+    }
+
+    closePopup2.onclick = () => {
+        dataAdmin.classList.remove('data-popup-active2');
+    }
+
+
+    closeConfirm.onclick = () => {
+        dataAdmin.classList.remove('data-confirm-active');
+    }
+</script>
+<script>
+    var acceptDonveButton = document.getElementById("accept_update_chuyenxe");
+
+    acceptDonveButton.addEventListener("click", function () {
+        updateChuyenxe();
+    });
+
+    function updateChuyenxe() {
+        var machuyen = document.getElementById('chuyenxe-machuyen').value;
+        var diadiemdi = document.getElementById('chuyenxe-diadiemdi').value;
+        var diadiemden = document.getElementById('chuyenxe-diadiemden').value;
+        var giokhoihanh = document.getElementById('chuyenxe-giokhoihanh').value;
+        var gioden = document.getElementById('chuyenxe-gioden').value;
+        var ngaydi = document.getElementById('chuyenxe-ngaydi').value;
+        var gia = document.getElementById('chuyenxe-gia').value;
+
+        // Gửi dữ liệu lên máy chủ
+        fetch('/update_chuyenxe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                machuyen: machuyen,
+                diadiemdi: diadiemdi,
+                diadiemden: diadiemden,
+                giokhoihanh: giokhoihanh,
+                gioden: gioden,
+                ngaydi: ngaydi,
+                gia: gia
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Cập nhật dữ liệu thành công");
+                window.location.reload();
+            } else {
+                alert("Cập nhật dữ liệu thất bại: " + data.error);
+                console.error("Cập nhật dữ liệu thất bại:", data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+
+<script>
+    var acceptDonveButton = document.getElementById("accept_insert_chuyenxe");
+
+    acceptDonveButton.addEventListener("click", function () {
+        insertChuyenxe();
+    });
+
+    function insertChuyenxe() {
+        var tenchuyen = document.getElementById('insert_chuyenxe-tenchuhyen').value;
+        var loaixe = document.getElementById('insert_chuyenxe-loaixe').value;
+        var diadiemdi = document.getElementById('insert_chuyenxe-diadiemdi').value;
+        var diadiemden = document.getElementById('insert_chuyenxe-diadiemden').value;
+        var giokhoihanh = document.getElementById('insert_chuyenxe-giokhoihanh').value;
+        var gioden = document.getElementById('insert_chuyenxe-gioden').value;
+        var ngaydi = document.getElementById('insert_chuyenxe-ngaydi').value;
+        var gia = document.getElementById('insert_chuyenxe-gia').value;
+        
+        // Gửi dữ liệu lên máy chủ
+        fetch('/insert_chuyenxe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                tenchuyen: tenchuyen,
+                loaixe: loaixe,
+                diadiemdi: diadiemdi,
+                diadiemden: diadiemden,
+                giokhoihanh: giokhoihanh,
+                gioden: gioden,
+                ngaydi: ngaydi,
+                gia: gia
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Thêm dữ liệu thành công");
+                window.location.reload();
+            } else {
+                alert("Thêm dữ liệu không thành công");
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var deleteButtons = document.querySelectorAll('.data-value-action-remove');
+
+        deleteButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                var machuyen = button.dataset.machuyen;
+
+                var confirmPopup = document.querySelector('.data-confirm');
+                confirmPopup.classList.add('data-confirm-active');
+
+                var acceptButton = document.querySelector('.data-confirm-remove');
+                acceptButton.addEventListener('click', function () {
+                    fetch('/delete_chuyenxe', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            machuyen: machuyen
+                        })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert("Xóa chuyến xe thành công");
+                                window.location.reload();
+                            } else {
+                                alert("Xóa chuyến xe thất bại: " + data.error);
+                                console.error("Xóa chuyến xe thất bại:", data.error);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+
+                    // Đóng cửa sổ xác nhận
+                    confirmPopup.classList.remove('data-confirm-active');
+                });
+
+                // Gắn sự kiện click cho nút "Cancel"
+                var cancelButton = document.querySelector('.data-confirm-cancel');
+                cancelButton.addEventListener('click', function () {
+                    // Đóng cửa sổ xác nhận nếu người dùng nhấn "Cancel"
+                    confirmPopup.classList.remove('data-confirm-active');
+                });
+            });
+        });
+    }); 
+</script>
+{% endblock %}

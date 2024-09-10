@@ -1,0 +1,216 @@
+{% extends 'admin/layouts.html' %} 
+{% block content %} 
+<section class="data ">
+    <div class="data-overlay"></div>
+    <div class="data-confirm">
+        <div class="data-popup-title">Xác nhận</div>
+        <div class="data-confirm-icon"><i class='bx bxs-message-rounded-x'></i></div>
+        <p class="data-confirm-txt">
+            Bạn có chắc chắn muốn xóa dữ liệu này không?
+        </p>
+        <p class="data-confirm-txt">Hành động này sẽ xóa dữ liệu và có thể gây ra lỗi trong
+            hệ thống!</p>
+        <div class="data-confirm-button">
+            <div class="data-confirm-cancel">Cancel</div>
+            <div class="data-confirm-remove">Accept</div>
+        </div>
+    </div>
+
+    <div class="data-popup_add">
+        <div class="data-popup-title">Thêm dữ liệu</div>
+        <div class="data-popup-close2"><i class='bx bx-x'></i></div>
+        <form action="" class="data-form admin-form form-validation">
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-phone">Tên Chuyến xe</label>
+                <input class="data-form-input" type="text" name="customer-insert-stk" id="tuyenxe-insert_tenchuyenxe">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-phone">Địa điểm đi</label>
+                <input class="data-form-input" type="text" name="customer-insert-phone" id="tuyenxe-insert_diadiemdi">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-mail">Địa điểm đến</label>
+                <input class="data-form-input" type="text" name="customer-insert-machuyen" id="tuyenxe-insert_diadiemden">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-name">Quãng Đường</label>
+                <input class="data-form-input" type="text" name="customer-insert-ghe" id="tuyenxe-insert_quangduong">
+            </div>
+            <div class="form-group data-form-group">
+                <label class="data-form-label" for="customer-name">Thời Gian Hành Trình</label>
+                <input class="data-form-input" type="text" name="customer-insert-ghe" id="tuyenxe-insert_time">
+            </div>
+            <div class="form-submit data-form-submit">
+                <div class="data-form-btn data-form-clear">clear all</div>
+                <div class="data-form-btn data-form-accept form-submit-validation" id = "accept_accept_tuyenxe">accept</div>
+            </div>
+        </form>
+    </div>
+
+    <div class="data-wrapper">
+        <div class="data-control">
+            <div class="data-control-all">
+                <div class="data-control-input">
+                    <input type="checkbox" name="" id="check-all">
+                </div>
+                <label for="check-all">select all</label>
+                <div class="data-control-count">(0 selected)</div>
+            </div>
+            <div class="data-control-add">
+                <div class="data-control-add-btn">
+                    <i class='bx bx-book-add'></i>
+                    <span>Thêm mới</span>
+                </div>
+            </div>
+        </div>
+        <style>
+            .data-title .data-title-name{
+                width: 200px;
+            }
+            .data-value .data-value-name{
+                width: 200px;
+                font-weight: 600;
+            }
+
+            .data-title .data-title-dob{
+                width: 100px;
+            }
+            .data-value .data-value-dob{
+                width: 100px;
+            }
+
+            .data-title .data-title-mail{
+                width: 200px;
+            }
+            .data-value .data-value-mail{
+                width: 200px;
+            }
+
+            .data-title .data-title-address{
+                width: 350px;
+            }
+            .data-value .data-value-address{
+                width: 350px;
+            }
+
+            .data-title .data-title-pass{
+                width: 100px;
+                
+            }
+            .data-value .data-value-pass{
+                width: 100px;
+                margin-left: 50px;
+            }
+        </style>
+        <div class="data-table">
+            <ul class="data-box data-title">
+                <li class="data-title-item data-title-check">chọn</li>
+                <li class="data-title-item data-title-name" style="width: 350px;">Tên Tuyến xe</li>
+                <li class="data-title-item data-title-dob" style="width: 150px;">Địa điểm đi</li>
+                <li class="data-title-item data-title-cmnd" style="width: 150px;">Địa điểm đến</li>
+                <li class="data-title-item data-title-phone" style="width: 150px;">Quãng đường</li>
+                <li class="data-title-item data-title-mail" style="width: 180px;">Thời gian hành trình</li>
+                <li class="data-title-item data-title-action">Hành động</li>
+            </ul>
+            <div class="data-box data-value">
+                {% for tuyenxe in tuyenxe %}
+                <ul class="data-value-row">
+                    <li class="data-value-item data-value-check"><input type="checkbox" name="" id=""></li>
+                    <li class="data-value-item data-value-name" style="width: 350px;">{{ tuyenxe.TenTuyenXe }}</li>
+                    <li class="data-value-item data-value-dob" style="width: 150px;">{{ tuyenxe.DiaDiemDi }}</li>
+                    <li class="data-value-item data-value-cmnd" style="width: 150px;">{{ tuyenxe.DiaDiemDen }}</li>
+                    <li class="data-value-item data-value-phone" style="width: 150px;margin-left: -10px;">{{ tuyenxe.QuangDuong }}</li>
+                    <li class="data-value-item data-value-address" style="width: 180px;text-align: center;">{{ tuyenxe.ThoiGianHanhTrinh }}</li>
+                    <li class="data-value-item data-value-action">
+                        <div class="data-value-action-button">
+                            <div class="data-value-action-remove" data-TenTuyenXe="{{ tuyenxe.TenTuyenXe }}" style="margin-left: 10px;">
+                                <span>xóa</span>
+                                <i class='bx bxs-trash'></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="data-navigation"></div>
+    </div>
+</section>
+<!-- error -->
+<section class="error">
+    <ul class="error-list">
+        <li class="error-item">fs</li>
+    </ul>
+</section>
+<script>
+     let dataAdmin = document.querySelector('.data');
+
+let dataAddBtn = document.querySelector('.data-control-add');
+let dataEditBtn = document.querySelectorAll('.data-value-action-edit');
+let dataRemoveBtn = document.querySelectorAll('.data-value-action-remove');
+
+let closePopup = document.querySelector('.data-popup-close');
+let closePopup2 = document.querySelector('.data-popup-close2');
+let closeConfirm = document.querySelector('.data-confirm-cancel');
+
+dataAddBtn.onclick = () => {
+    dataAdmin.classList.add('data-popup-active2');
+    
+}
+
+dataRemoveBtn.forEach((element, index) => {
+    element.onclick = () => {
+        dataAdmin.classList.add('data-confirm-active');
+    }
+})
+
+closePopup2.onclick = () => {
+    dataAdmin.classList.remove('data-popup-active2');
+}
+
+
+closeConfirm.onclick = () => {
+    dataAdmin.classList.remove('data-confirm-active');
+}
+</script>
+
+<script>
+    var acceptDonveButton = document.getElementById("accept_accept_tuyenxe");
+
+    acceptDonveButton.addEventListener("click", function () {
+        insertTuyenxe();
+    });
+
+    function insertTuyenxe() {
+    const tenchuyenxe = document.getElementById('tuyenxe-insert_tenchuyenxe').value;
+    const diadiemdi = document.getElementById('tuyenxe-insert_diadiemdi').value;
+    const diadiemden = document.getElementById('tuyenxe-insert_diadiemden').value;
+    const quangduong = document.getElementById('tuyenxe-insert_quangduong').value;
+    const time = document.getElementById('tuyenxe-insert_time').value;
+
+    fetch('/insert_tuyenxe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            tenchuyenxe: tenchuyenxe,
+            diadiemdi: diadiemdi,
+            diadiemden: diadiemden,
+            quangduong: quangduong,
+            time: time
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Thêm dữ liệu thành công");
+            window.location.reload();
+        } else {
+            alert("Thêm dữ liệu không thành công");
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+{% endblock %}

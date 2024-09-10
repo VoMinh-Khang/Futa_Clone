@@ -1,0 +1,115 @@
+{% extends 'user/layouts.html' %} 
+{% block content %}
+<section id="body-content" style = "margin-bottom: 100px;">
+    <div class="header-confirm">
+        <img src="{{ url_for('static', filename='img/check.png') }}" alt="" width="60px;">
+        <h1 style = "color:#00613d;">Mua vé xe thành công</h1>
+        <p>FUTA Bus Lines đã gửi thông tin vé đã đặt về địa chỉ email <span style="font-weight: 600;">{{customer_email}}</span>. vui lòng kiểm tra lại.</p>
+    </div>
+    <div class ="body-confirm">
+        <div class="ticket-header-info">
+            <h3>THÔNG TIN MUA VÉ</h3>
+        </div>
+        <div class="ticket-info">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Họ và tên:<span style="margin-left:15px;color: #000000;">{{customer_name}}</span></p>
+                    <p>Số điện thoại:<span style="margin-left:15px;color: #000000;">{{customer_phone}}</span></p>
+                    <p>Email:<span style="margin-left:15px;color: #000000;">{{customer_email}}</span></p>
+                </div>
+                <div class="col-lg-6">
+                    <p>Tổng giá vé:<span style="margin-left:15px;color: #000000;">{{total_price}}</span></p>
+                    <p>PTTT:<span style="margin-left:15px;color: #000000;">FUTAPay</span></p>
+                    <p>Trạng thái:<span style="margin-left:15px;color: #098b4a;">Thanh toán thành công</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="ticket-img">
+            <div class="ticket-img-body">
+                {% for seat in selected_seat_list %}
+                <div class="ticket-img-item">
+                    <div style="display: flex; justify-content: space-between;padding: 12px 12px;">
+                        <div class="circle-wrapper">
+                            <img src="{{ url_for('static', filename='img/downloads.png') }}" alt="" style="width:20px;">
+                        </div>
+                        <p style ="margin-top: 8px; font-size:14px; font-weight: 600;">Mã vé {{madon}}</p>
+                        <div class="circle-wrapper">
+                            <img src="{{ url_for('static', filename='img/share.png') }}" alt="" style="width:20px;">
+                        </div>
+                    </div>
+                    <div class="image-wrapper">
+                        <img src="{{ url_for('static', filename='img/qr_code.jpg') }}" alt="" style="width:180px;">
+                    </div>
+                    <div style="padding: 0px 10px;margin-top: 10px;">
+                        <div style="display: flex;justify-content: space-between;">
+                            <p>Tuyến xe</p>
+                            <p style="color: #098b4a;">{{tenchuyenxe}}</p>
+                        </div>
+    
+                        <div style="display: flex;justify-content: space-between;">
+                            <p>Thời gian</p>
+                            <p style="color: #098b4a;">{{gio_khoi_hanh}} {{ngay_di}}</p>
+                        </div>
+    
+                        <div style="display: flex;justify-content: space-between;">
+                            <p>Số ghế</p>
+                            <p style="color: #098b4a;">{{ seat }}</p>
+                        </div>
+    
+                        <div style="display: flex;justify-content: space-between;">
+                            <p>Điểm lên xe</p>
+                            <p style="color: #098b4a;">{{diadiemdi}}</p>
+                        </div>
+    
+                        <div style="display: flex;justify-content: space-between;">
+                            <p>Giá vé</p>
+                            <p>{{formatted_ticket_price}}</p>
+                        </div>
+    
+                        <div style="width:250px;">
+                            <p style="color: #098b4a;text-align: center;font-size: 13px;">Mang mã vé đến văn phòng để đổi vé lên xe trước giờ xuất phát 60 phút</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div style="display: flex;justify-content: center;margin-bottom: 20px;margin-top: 10px;">
+            <div class="block-share" style="margin-right: 20px;">
+                <img src="{{ url_for('static', filename='img/share2.png') }}" alt="" style="width:20px;height:20px;margin-right: 10px;">
+                Chia sẻ
+            </div>
+            <div class="block-save" style="margin-left: 20px;">
+                <img src="{{ url_for('static', filename='img/downloads2.png') }}" alt="" style="width:20px;height:20px;margin-right: 10px;">
+                Tải về
+            </div>
+        </div>
+    </div>
+    <div class="backgohome">
+        <a href="{{ url_for('home') }}">Trờ về trang chủ</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ticketImg = document.querySelector('.ticket-img');
+
+        // Kiểm tra khi kích thước của phần tử con lớn hơn 1000px
+        function checkOverflow() {
+            var childDiv = ticketImg.querySelector('ticket-img-body');
+            if (childDiv.offsetWidth > 1130) {
+                ticketImg.style.overflowX = 'auto';
+            } else {
+                ticketImg.style.overflowX = 'hidden';
+            }
+        }
+
+        // Gọi hàm kiểm tra khi trang được tải hoặc kích thước cửa sổ thay đổi
+        window.addEventListener('resize', checkOverflow);
+        document.addEventListener('DOMContentLoaded', checkOverflow);
+    });
+    
+</script>
+
+{% endblock %}

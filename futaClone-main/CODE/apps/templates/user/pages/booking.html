@@ -1,0 +1,924 @@
+{% extends 'user/layouts.html' %} 
+{% block content %}
+<link rel='stylesheet' id='theme-style-css'  href="{{ url_for('static', filename='css/bookingStep2.css') }}" type='text/css' media='all' />
+<section id="body-content" style = "margin-bottom: 100px;">
+    <div id="steps" class="container">
+        <ul class="list-step clearfix">
+            <li>Chọn chuyến <span></span> </li>
+            <li class="active">Chọn ghế <span></span></li>
+            <li>Thanh toán <span></span></li>
+        </ul>
+    </div>
+    <div id="content-steps" class="container">
+        <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 col-ms-12">
+            <div class="panel">
+                <p class="text-center text-uppercase text-primary">Thông tin chọn ghế</p>
+                <form id="frm-book-slot" action="">
+                    <fieldset>
+                            <!-- Nav tabs -->
+                            <ul class="v-tabs clearfix" role="tablist">
+                            <li role="presentation" class="active"><a href="#tier-up" aria-controls="home" role="tab" data-toggle="tab">Tầng trên</a></li>
+                            <li role="presentation"><a href="#tier-down" aria-controls="profile" role="tab" data-toggle="tab">Tầng dưới</a></li>
+                            
+                            </ul>
+                        
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                {% if vehicle_type == 'Giường' %}
+                                <div role="tabpanel" class="tab-pane active" id="tier-up">
+                                    <table class="grid-seat table" style = "width: 500px;margin:0 auto; margin-bottom: 40px;">
+                                        <thead>
+                                            <tr>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A01' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">A01</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'A02' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">A02</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A03' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">A03</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A04' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">A04</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'A05' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A05</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A06' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A06</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A07' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A07</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'A08' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A08</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A09' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A09</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A10' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A10</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'A11' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A11</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A12' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A12</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A13' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A13</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'A14' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A14</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A15' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A15</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A16' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A16</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A17' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A17</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A18' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A18</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A19' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A19</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A20' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A20</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <div role="tabpanel" class="tab-pane" id="tier-down">
+                                    <table class="grid-seat table" style = "width: 500px;margin:0 auto; margin-bottom: 40px;">
+                                        <thead>
+                                            <tr>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                                <th width="20%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B01' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B01</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'B02' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B02</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B03' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B03</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B04' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B04</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'B05' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B05</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B06' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B06</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B07' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B07</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'B08' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B08</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B09' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B09</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B10' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B10</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'B11' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B11</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B12' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B12</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B13' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B13</p>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                            <td class="">
+                                                <div class="seat {% if 'B14' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B14</p>
+                                                </div>
+                                            </td>
+
+                                            <td></td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B15' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B15</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B16' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B16</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B17' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B17</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B18' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B18</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B19' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B19</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B20' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B20</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                {% elif vehicle_type == 'Limousine' %}
+                                <div role="tabpanel" class="tab-pane active" id="tier-up">
+                                    <table class="grid-seat table" style = "width: 500px;margin:0 auto; margin-bottom: 40px;">
+                                        <thead>
+                                            <tr>
+                                                <th width="30%"></th>
+                                                <th width="30%"></th>
+                                                <th width="30%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A01' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">A01</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A02' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">A02</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A03' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">A03</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A04' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A04</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A05' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A05</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A06' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A06</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A07' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A07</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A08' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A08</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A09' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A09</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A10' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A10</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A11' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A11</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A12' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A12</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A13' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A13</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'A14' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A14</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'A15' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A15</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A16' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A16</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'A17' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">A17</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="tier-down">
+                                    <table class="grid-seat table" style = "width: 500px;margin:0 auto; margin-bottom: 40px;">
+                                        <thead>
+                                            <tr>
+                                                <th width="30%"></th>
+                                                <th width="30%"></th>
+                                                <th width="30%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B01' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">B01</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B02' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">B02</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B03' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="color: #ffffffd9;font-size: 8px;margin-top: 5px;">B03</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B04' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B04</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B05' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B05</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B06' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B06</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B07' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B07</p>
+                                                </div>
+                                            </td>
+
+
+                                            <td class="">
+                                                <div class="seat {% if 'B08' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B08</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B09' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B09</p>
+                                                </div>
+                                            </td>
+ 
+                                            <td class="">
+                                                <div class="seat {% if 'B10' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B10</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B11' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B11</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B12' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B12</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B13' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B13</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B14' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B14</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td class="">
+                                                <div class="seat {% if 'B15' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B15</p>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                <div class="seat {% if 'B16' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B16</p>
+                                                </div>
+                                            </td>
+
+                                            <td class="">
+                                                <div class="seat {% if 'B17' in seat_numbers %}choosed{% endif %}">
+                                                    <p style="font-size: 8px;margin-top: 5px;">B17</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                {% endif %}
+                            </div>
+                        
+                    </fieldset>
+                    <div class="row" style ="margin-left: 34px;">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-ms-12" style = "display: flex;">
+                            <div class="booked"></div><span style = "margin-top:3px;margin-left:10px;">Đã bán</span>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-ms-12" style = "display: flex;">
+                            <div class="ordered"></div><span style = "margin-top:3px;margin-left:10px;">Đang chọn</span>
+                        </div>
+                       
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 col-ms-12" style = "display: flex;">
+                            <div class="nothing"></div><span style = "margin-top:3px;margin-left:10px;">Còn trống</span>
+                        </div>
+                    </div>
+                </form>
+                
+            </div> 
+
+            <div style="margin-top: -30px;">
+                <section class="customer">
+                    <div class="container">
+                        <div class="customer-wrapper">
+                            <div class="customer-form customer-block">
+                                <h3 class="customer-title" style = "font-family: sans-serif;font-weight: 500;">thông tin hành khách</h3>
+                                <form action="" class="form-validation">
+                                    <div class="customer-field form-group-name form-group">
+                                        <label for="customer-name" class="customer-field-label" style = "font-family: sans-serif;">Họ tên hành khách *</label>
+                                        <input data-type="name" type="text" name="Ho va Ten" id="customer-name"
+                                            class="customer-field-input" placeholder="Họ và tên">
+                                    </div>
+                                    <div class="customer-field form-group-phone form-group">
+                                        <label for="customer-phone" class="customer-field-label" style = "font-family: sans-serif;">Số điện thoại *</label>
+                                        <input data-type="phone" type="text" name="SDT" id="customer-phone"
+                                            class="customer-field-input" placeholder="Nhập số điện thoại">
+                                    </div>
+                                    <div class="customer-field form-group-email form-group">
+                                        <label for="customer-email" class="customer-field-label" style = "font-family: sans-serif;">Email *</label>
+                                        <input data-type="mail" type="text" name="Email" id="customer-email"
+                                            class="customer-field-input" placeholder="Nhập email">
+                                    </div>
+                                    <div class="customer-field customer-terms form-group-terms form-group">
+                                        <input data-type="terms" type="checkbox" name="Futa Terms" id="checkbox-terms">
+                                        <label for="checkbox-terms" class="customer-terms-label" style = "font-size: 13px; color: #454545de; font-family: 500;margin-top: 10px;">
+                                            Chấp nhận
+                                            <span class="customer-terms-link">điều khoản đặt vé</span>
+                                            của FUTA BusLines
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="customer-rules customer-block" style = "width: 45%;">
+                                <h3 class="customer-title" style = "font-family: sans-serif;font-weight: 500;">điều khoản & lưu ý</h3>
+                                <ul class="customer-rules-list">
+                                    <li class="customer-rules-item" style = "font-family: sans-serif;font-size: 14px;">
+                                        (*) Quý khách vui lòng đến bến xuất phát trước ít nhất 30 phút so với giờ khởi hành, 
+                                        mang theo mã vé được gửi từ FUTA BUS LINE. Liên hệ tổng đài <span class="customer-rules-highlight">1900 6067</span> để được hỗ trợ.
+                                    </li>
+                                    <li class="customer-rules-item" style = "font-family: sans-serif;font-size: 14px;">
+                                        (*) Nếu quý khách có nhu cầu trung chuyển, vui lòng liên hệ Tổng đài trung chuyển
+                                        <span class="customer-rules-highlight">1900 6018</span> trước khi đặt vé. Chúng tôi không đón/trung chuyển tại 
+                                         những điểm xe trung chuyển không thể tới được.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="error">
+                    <ul class="error-list">
+                        <li class="error-item">fs</li>
+                    </ul>
+                </section>
+            </div> 
+            
+            <div class="panel" style = "margin: -15px; width:100%;margin-left: 2px;">
+                <h3 class="customer-title" style = "font-family: sans-serif;font-weight: 500;">thông tin đón trả</h3>
+                <div class="row">
+                    <div class="col-lg-6" style = "border-right: 1px solid #e5e7eb;padding-right: 15px;">
+                        <h4>ĐIỂM ĐÓN</h4>
+                        <select class="reception" id="">
+                            <option value="">{{diadiemdi}}</option>
+                        </select>
+                        <p style = "padding: 0 10px;font-size: 15px;">
+                            Quý khách vui lòng có mặt tại Bến xe/Văn Phòng
+                            <span style = "font-weight: 700;">{{diadiemdi}}</span>
+                            <span style = "color: #FF422A; font-size: 700;">Trước {{gio_khoi_hanh}} {{ngay_di}}</span>
+                            để được trung chuyển hoặc kiểm tra thông tin trước khi lên xe.
+                        </p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>ĐIỂM TRẢ</h4>
+                        <select class="reception" id="">
+                            <option value="">{{diadiemden}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+
+              
+            <div class="panel" style = "margin-top:38px; width: 100%;margin-left: 2px;">
+               <div style = "display: flex; justify-content: space-between; padding: 10px 10px;">
+                <div>
+                    <div class = "logo-futapay">FUTAPAY</div>
+                    <p style = "font-family: 800; font-size: 23px;" id = "formattedBalanceElement">{{formatted_balance}}đ</p>
+                </div>
+
+                <div>
+                    <div style = "display: flex;">
+                        <div class = "button-cancel" onclick="goBack()">Hủy</div>
+                        <div class = "button-pay" id="button-pay" data-ma-chuyen="{{ma_chuyen}}">Thanh toán</div>
+                    </div>
+          
+                </div>
+               </div>
+            </div> 
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-ms-12">
+            <div class="panel">
+                <p class="text-center text-uppercase text-primary" style = "margin-top: 10px; margin-bottom: 20px;font-size: 16px;">Thông tin đặt vé</p>
+                <div id="step-info">
+                    <div style = "display: flex;justify-content: space-between;margin-bottom: 10px;"><p>
+                        Tuyến Xe
+                    </p>
+                    <span style = "font-weight: 600;color: rgba(0, 0, 0, 0.733);">{{ten_chuyen_xe}}</span>
+                </div>
+                    <table class="time-map table">
+                        <tr>
+                            <td>
+                                <p><i class="fa fa-bus text-primary"></i> <strong>Xuất phát</strong></p>
+                                <span>{{ngay_di}} - {{gio_khoi_hanh}}</span>
+                            </td>
+                            <td class="time-line">
+                                <div class="first"></div>
+                            </td>
+                            <td>
+                                <p>&nbsp;</p>
+                                <p>{{dia_diem_di}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    <i class="fa fa-clock-o"></i> {{thoi_gian_chuyen_xe}}
+                                </p>
+                            </td>
+                            <td class="time-line">
+                                <div class="middle">
+                                    
+                                </div>
+                            </td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                            <tr>
+                            <td>
+                                <p><i class="fa fa-bus text-primary"></i> <strong>Đến lúc</strong></p>
+                                <span>{{ngay_den}} - {{gio_den}}</span>
+                            </td>
+                            <td class="time-line ">
+                                <div class="end"></div>
+                            </td>
+                            <td>
+                                <p>&nbsp;</p>
+                                <p>{{dia_diem_den}}</p>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div style = "display: flex;justify-content: space-between;margin-bottom: 10px;"><p>
+                        Số ghế
+                        </p>
+                        <span id="selectedSeat" style = "font-weight: 600;color: rgba(23, 23, 23, 0.598);font-size: 15px;"></span>
+                    </div>
+                </div>
+                
+                
+            </div>   
+            <div class="panel">
+                <p class="text-center text-uppercase text-primary" style = "margin-top: 10px; margin-bottom: 20px;font-size: 16px;">Chi tiết giá</p>
+
+                <div style = "display: flex;justify-content: space-between;margin-bottom: 10px;"><p>
+                    Giá vé lượt đi
+                </p>
+                <span style = "font-weight: 600;color: #FF422A;font-size: 17px;" id = "selectedprice" data-price="{{price}}">0.000đ</span>
+                </div>
+                <div style = "display: flex;justify-content: space-between;"><p>
+                    Phí thanh toán
+                </p>
+                <span style = "font-weight: 600;color: #FF422A;font-size: 17px;">0.000đ</span>
+            </div>
+                <hr>
+                <div style = "display: flex;justify-content: space-between;margin-bottom: 10px;"><p>
+                    Tổng tiền
+                </p>
+                <span style = "font-weight: 600;color: #FF422A;font-size: 17px;" id = "selectedsumprice">0.000đ</span>
+            </div>
+            </div> 
+            
+        </div>
+        </div>
+    </div>
+    <div>
+    </div>
+
+</section>
+<script>
+var seats = document.querySelectorAll('.seat');
+
+// Lặp qua từng phần tử
+seats.forEach(function(seat) {
+    // Kiểm tra xem lớp của phần tử có chứa "seat" không
+    if (seat.classList.contains('seat')) {
+        var pElement = seat.querySelector('p');
+        // Kiểm tra xem lớp của phần tử có chứa "selected" hay "choosed" không
+        if (seat.classList.contains('selected') || seat.classList.contains('choosed')) {
+            // Nếu có, thiết lập màu cho phần tử p
+            pElement.style.color = '#ffffffd9';
+        } else {
+            // Nếu không, thiết lập màu cho phần tử p khác
+            pElement.style.color = '#000000d9';
+        }
+    }
+});
+</script>
+
+<script>
+    var check = false
+    document.addEventListener('DOMContentLoaded', function () {
+        var seats = document.querySelectorAll('.seat');
+        var selectedSeats = [];
+        var selectedSeatElement = document.getElementById('selectedSeat'); 
+        var selectedPriceElement = document.getElementById('selectedprice');
+        var selectedsumPriceElement = document.getElementById('selectedsumprice');
+        var pricePerSeat = parseInt(selectedPriceElement.getAttribute('data-price'));
+
+        seats.forEach(function (seat) {
+            // Kiểm tra và thiết lập màu của phần tử p ban đầu
+            var pElement = seat.querySelector('p');
+            if (seat.classList.contains('selected') || seat.classList.contains('choosed')) {
+                pElement.style.color = '#ffffffd9';
+            } else {
+                pElement.style.color = '#000000d9';
+            }
+
+            seat.addEventListener('click', function () {
+                if (selectedSeats.length >= 5 && !seat.classList.contains('selected')) {
+                    alert("Bạn chỉ được chọn tối đa 5 ghế!");
+                    return;
+                }
+                if (seat.classList.contains('choosed')) {
+                    // Không làm gì nếu là ghế đã được chọn
+                    return;
+                }
+
+                if (seat.classList.contains('selected')) {
+                    // Nếu đã được chọn, hủy lớp selected
+                    seat.classList.remove('selected');
+                    pElement.style.color = '#000000d9'; // Đặt màu cho phần tử p
+                    var index = selectedSeats.indexOf(pElement.innerText);
+                    if (index !== -1) {
+                        selectedSeats.splice(index, 1);
+                    }
+                } else {
+                    // Nếu chưa được chọn, thêm lớp selected
+                    seat.classList.add('selected');
+                    pElement.style.color = '#ffffffd9'; // Đặt màu cho phần tử p
+                    var seatName = pElement.innerText;
+                    selectedSeats.push(seatName);
+                }
+                selectedSeatElement.innerText = selectedSeats.join(', ');
+                const totalPrice = selectedSeats.length * pricePerSeat;
+                const formatter = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 });
+                const formattedPrice = formatter.format(totalPrice);
+                const priceWithoutCurrency = formattedPrice.replace('₫', '').trim();
+                selectedPriceElement.innerText = priceWithoutCurrency + '.000đ';
+                selectedsumPriceElement.innerText = priceWithoutCurrency + '.000đ';
+            });
+        });
+        document.getElementById('button-pay').addEventListener('click', function () {
+        // Kiểm tra xem có ghế nào đã được chọn hay không
+        if (selectedSeats.length === 0) {
+            alert('Vui lòng chọn ghế trước khi tiếp tục.');
+        } else {
+            check = true
+        }
+    });
+
+    // Lấy ra các phần tử cần thiết từ DOM
+    var form = document.querySelector('.form-validation');
+        var nameInput = document.getElementById('customer-name');
+        var phoneInput = document.getElementById('customer-phone');
+        var emailInput = document.getElementById('customer-email');
+        var termsCheckbox = document.getElementById('checkbox-terms');
+        var payButton = document.querySelector('.button-pay');
+    
+        // Function kiểm tra xem các trường input có được điền đầy đủ không
+        function validateForm() {
+            if (!nameInput.value.trim() || !phoneInput.value.trim() || !emailInput.value.trim() || !termsCheckbox.checked) {
+                alert('Vui lòng điền đầy đủ thông tin và chấp nhận điều khoản.');
+                return false;
+            }
+            var phoneRegex = /^\d{10,11}$/; // Biểu thức chính quy cho số điện thoại (10 hoặc 11 chữ số)
+            if (!phoneRegex.test(phoneInput.value.trim())) {
+                alert('Số điện thoại không hợp lệ. Vui lòng nhập lại.');
+                return false;
+            }
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Biểu thức chính quy cho email
+            if (!emailRegex.test(emailInput.value.trim())) {
+                alert('Email không hợp lệ. Vui lòng nhập lại.');
+                return false;
+            }
+            return true;
+        }
+    
+        // Gắn sự kiện click cho nút thanh toán
+        payButton.addEventListener('click', function() {
+            var isValid = validateForm();
+            var selectedsumPriceElement = document.getElementById('selectedsumprice');
+            var priceString = selectedsumPriceElement.innerText;
+            var priceInteger = parseInt(priceString.replace(/\D/g, ''));
+            var formattedBalanceElement = document.getElementById('formattedBalanceElement');
+            var formattedBalance = parseInt(formattedBalanceElement.innerText.replace(/\D/g, ''), 10);
+            if (!isValid) {
+                // Ngăn chặn hành động mặc định của nút thanh toán nếu có lỗi
+                event.preventDefault();
+            }
+            if (isValid && check === true){
+                if (priceInteger > formattedBalance) {
+                    alert("Số dư của bạn không đủ!");
+                    return;
+                }
+
+                var selectedSeatElement = document.getElementById('selectedSeat');
+                var selectedsumPriceElement = document.getElementById('selectedsumprice');
+                var maChuyen = encodeURIComponent(payButton.getAttribute('data-ma-chuyen'));
+                var selectedSeat = encodeURIComponent(selectedSeatElement.innerText);
+                var totalPrice = encodeURIComponent(selectedsumPriceElement.innerText);
+                var customerName = encodeURIComponent(nameInput.value);
+                var customerPhone = encodeURIComponent(phoneInput.value);
+                var customerEmail = encodeURIComponent(emailInput.value);
+                // Gửi dữ liệu qua bên /pay
+                window.location.href = '/pay?ma_chuyen=' + maChuyen + '&selected_seat=' + selectedSeat + '&total_price=' + totalPrice + '&customer_name=' + customerName + '&customer_phone=' + customerPhone + '&customer_email=' + customerEmail;
+            }
+        });
+    });
+
+    
+</script>
+
+<script>
+    function goBack() {
+    window.history.back();
+}
+</script>
+{% endblock %}

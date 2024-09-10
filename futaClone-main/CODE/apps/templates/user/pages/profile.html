@@ -1,0 +1,52 @@
+{% extends 'user/layouts.html' %} 
+{% block content %} 
+
+<section id="body-content" class = "container">
+    <div class = "row">
+        <div class = "col-lg-3">
+            <ul class="menu-profile">
+                <li><img src="https://futabus.vn/images/header/profile/futaPay.svg" alt=""><span><a href="{{ url_for('futapay') }}">FUTAPay</a></span></li>
+                <li class="profile-active"><img src="https://futabus.vn/images/header/profile/Profile.svg" alt=""><span><a href="{{ url_for('profile') }}">Thông tin tài khoản</a></span></li>
+                <li><img src="https://futabus.vn/images/header/profile/History.svg" alt=""><span><a href="{{ url_for('history') }}">Lịch sử mua vé</a></span></li>
+                <li><img src="https://futabus.vn/images/header/profile/Address.svg" alt=""><span><a href="">Địa chỉ của bạn</a></span></li>
+                <li><img src="https://futabus.vn/images/header/profile/Password.svg" alt=""><span><a href="">Đặt lại mật khẩu</a></span></li>
+                <li><img src="	https://futabus.vn/images/header/profile/Logout.svg" alt=""><span><a href="{{ url_for('logout') }}">Đăng xuất</a></span></li>
+            </ul>
+        </div>
+        <div class = "col-lg-9">
+             <div class="content-profile">
+                <h5 style = "font-weight: 600;font-size:19px;">Thông tin tài khoản</h5>
+                <p style ="color: #637280;">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                <div class="info-profile">
+                    <div class="row">
+                        <div class="col-lg-4 avatar-profile">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/free-avatar-372-456324.png" alt="" style = "width: 200px;">
+                            <div class ="choose-img-avartar">Chọn ảnh</div>
+                            <p>Dung lượng file tối đa 1 MB định dạng:.JPEG, .PNG</p>
+                        </div>
+                        <div class="col-lg-8 info_orther-profile">
+                            <div>Họ và tên        :<span>{{ info_user.get('HoVaTen', '') }}</span></div>
+                            <div>Số điện thoại    :<span>{{ info_user.get('SDT', '') }}</span></div>
+                            <div>Giới tính        :
+                                <span>
+                                    <select id="gender_profile" name="gender">
+                                        <option value="male" {% if info_user.get('GioiTinh', '') == 'Nam' %} selected {% endif %}>Nam</option>
+                                        <option value="female" {% if info_user.get('GioiTinh', '') == 'Nu' %} selected {% endif %}>Nữ</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div>Email            :<span>{{ info_user.get('Email', '') }}</span></div>
+                            <div>Ngày sinh        :<span>{{ info_user.get('NgaySinh', '') }}</span></div>
+                            <div>Địa chỉ          :<span>{{ info_user.get('DiaChiStr', '') }}</span></div>
+                            <div>Nghề nghiệp      :<span></span></div>
+                            <button class="button-update-profile">Cập nhật</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
