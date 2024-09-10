@@ -1,0 +1,229 @@
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+     header #header-body{
+        #main-nav{
+          
+           .navbar-header{
+               .navbar-brand{
+                   display: none;
+               }
+           }
+        }
+    }
+    
+}// end media query
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  header #header-body #main-nav ul li a{
+      padding: 20px 9px;
+  }
+   /*******************************************************************************
+    ** Steps
+    **/
+    
+    #steps{
+        ul{
+           
+            li{
+                width: 50%;    
+            }
+        }    
+        
+    }
+  
+  
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px) {
+
+    header #header-body{
+        .navbar-header{
+            background: none;
+           .navbar-brand{
+               display: none;
+           }
+       }
+        
+        #main-nav{
+           background: @color-page;
+           ul{
+               padding: 0 10px;
+               float: none;
+               li{
+                   display: block;
+                   &:hover{
+                       background: #FFF;
+                       a{
+                           color: @color-page;
+                       }
+                   }
+                   a{
+                       padding: 10px 0;
+                       font-size: 14px;
+                       color: #FFF;
+                   }
+               }
+           }
+       }
+    
+    }
+    
+    #ads-app{
+        #app-wrap{
+            margin-top: 0px;
+        }
+    }
+    
+    footer #footer-body #nav-f
+    {
+        margin-top:20px;
+        ul{
+            text-align: left;
+             li{
+                width: 100%;
+                a{
+                    padding: 5px 10px;
+                }
+            }
+        }
+    }
+    
+    footer #footer-body{
+        
+        #f-info #social ul{
+            margin:0;
+            padding:0;
+            text-align:left;
+        }
+        
+        #f-info #info{
+            margin: 0;
+            padding-left:15px;
+        }
+        
+        
+    } 
+    
+     /*******************************************************************************
+    ** Steps
+    **/
+    
+    #steps{
+        ul{
+           
+            li{
+                width: 50%;    
+            }
+        }    
+        
+    }
+    
+}
+
+@media (min-width: 768px){
+   
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+     header #header-body{
+         .navbar-header{
+               background: #dddddd;
+               .navbar-brand{
+                   display: block;
+               }
+           }
+        #main-nav{
+           background: @color-page;
+           
+           
+           ul{
+               float: none;
+               li{
+                   display: block;
+                   &:hover{
+                       background: #FFF;
+                       a{
+                           color: @color-page;
+                       }
+                   }
+                   a{
+                       padding: 10px 0;
+                       font-size: 14px;
+                       color: #FFF;
+                   }
+               }
+           }
+       }
+    
+    }
+    
+    
+    #body-top #booking{
+        form{
+            button[type=submit]{
+                width: 100%;
+            }
+            p{
+                text-align: center;
+                margin: 0 10px 0 0;
+                display: block;
+            }
+        }
+    }
+    
+    #list-bus-slidertab .btn{
+      margin-bottom: 5px;
+    }
+    #body-main ul#list-bus{
+         
+    } 
+    
+    /*******************************************************************************
+    ** Steps
+    **/
+    
+    #steps{
+        ul{
+           
+            li{
+                width: 100%;    
+            }
+        }    
+        
+    }
+    
+     /*******************************************************************************
+    ** Promotions
+    **/
+    #news-block{
+        .news-items{
+            .news-contents{
+                .news-item-r{
+                     .news-items-service{
+                        float: none;
+                        margin-left: 0;
+                        margin-bottom: 10px;
+                        a{
+                            margin-top: 10px;
+                        }
+                    }
+                    .news-items-ecerpt{
+                        margin-right: 0;
+                    }
+                }
+                
+            } 
+        } 
+    } 
+    
+}
+

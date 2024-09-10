@@ -1,0 +1,116 @@
+{% extends 'user/layouts.html' %} 
+{% block content %} 
+
+<section id="body-content">
+    <div class="container" id="login-page">
+        
+        <div id="top-login" class="clearfix hidden-sm">
+            
+            <div id="login-top-bar-left" class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
+                <div class="row">
+                    <div class="text-center col-lg-4 col-md-4 col-sm-4 col-xs-12 col-ms-12">
+                        <div class="text-uppercase"><span class="relative"><span class="sprite safe"></span>An toàn</span></div>
+                        
+                    </div>
+                    <div class="text-center col-lg-4 col-md-4 col-sm-4 col-xs-12 col-ms-12">
+                        <div class="text-uppercase"><span class="relative"><span class="sprite bus"></span>Luôn có tuyến</span></div>
+                
+                    </div>
+                    <div class="text-center col-lg-4 col-md-4 col-sm-4 col-xs-12 col-ms-12">
+                        <div class="text-uppercase"><span class="relative"><span class="sprite faq"></span>Hỏi đáp</span></div>
+                
+                    </div>
+                </div>
+                
+            </div>
+            
+             <div id="login-top-bar-right" class="text-center col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
+                <p class="text-uppercase">Hãy tải app để chúng tôi phục vụ bạn tốt hơn <span class="sprite ico-app hidden-xs"></span> </p>
+                
+            </div>
+        </div>
+        <div id="body-login" class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
+                <div id="login-form-left" class="border clearfix">
+                     <div  class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-ms-12 col-lg-offset-2 col-md-offset-2">
+                         <h3 class="text-uppercase text-center">Tôi đã đăng ký tài khoản</h3>
+                         <form action="/login" class="form-horizontal" method = "POST">
+                             <div class="form-group">
+                                 <label for="">Địa chỉ email*</label>
+                                 <input type="text" name="email" id="email" class="form-control" placeholder="Nhập email"/>
+                             </div>
+                             <div class="form-group">
+                                 <label for="">Mật khẩu*</label>
+                                 <input type="password" name="password" id="password" class="form-control" placeholder="Nhập mật khẩu"/>
+                             </div>
+                             <div class="form-group">
+                                 <a href="#">Quên mật khẩu?</a>
+                             </div>
+                             <style>
+                                .alert {
+                                    padding: 1rem;
+                                    margin-bottom: 1rem;
+                                    border: 1px solid transparent;
+                                    border-radius: 0.25rem;
+                                }
+
+                                .alert-warning {
+                                    color: #856404;
+                                    background-color: #fff3cd;
+                                    border-color: #ffeeba;
+                                }
+                             </style>
+                             {% if error_message %}
+                             <div class="alert alert-warning" role="alert">
+                                 {{ error_message }}
+                             </div>
+                             {% endif %}
+                             <div class="form-group">
+                                 <label for="">
+                                     
+                                     <input type="checkbox">
+                                     Ghi nhớ
+                                 </label>
+                                 <button class="btn btn-primary pull-right">
+                                     Đăng nhập
+                                 </button>
+                             </div>
+                         </form>
+                     </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
+                <div id="login-form-right" class="border clearfix">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-ms-12 col-lg-offset-2 col-md-offset-2">
+                         <h3 class="text-uppercase text-center">Bạn là khách hàng mới?</h3>
+                         <p class="text-center">
+                             <a href="#" class="btn btn-primary">Đăng ký</a>
+                         </p>
+                         <p class="text-muted text-center">
+                             Chỉ với 1 tài khoản Futabus ID, tham gia được tất cả các chương trình của Futa Bus Lines
+                         </p>
+                         <hr class="sperator">
+                         <p class="text-uppercase text-center">
+                             Đăng nhập bằng tài khoản khác
+                         </p>
+                         <a href="#" class="btn btn-block btn-info btn-flat">
+                             <i class="fa fa-facebook icon-flat bg-btn-info"></i>
+                             Đăng nhập bằng Facebook
+                         </a>
+                         <a href="#" class="btn btn-block btn-primary btn-flat">
+                             <i class="fa fa-google icon-flat bg-btn-actived">
+                                 
+                             </i>
+                             Đăng nhập bằng Google
+                         </a>
+                     </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</section>
+{% endblock %}

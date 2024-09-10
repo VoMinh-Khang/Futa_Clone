@@ -1,0 +1,220 @@
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    background-color: #fff;
+    -webkit-font-feature-settings: 'tnum';
+    font-feature-settings: 'tnum';
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+.login-container {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-banner {
+    height: 161px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: url('https://admin.futacitybus.vn/static/images/bg-login.342ded3d.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-content {
+    margin: 2rem 0;
+    padding: 24px;
+    width: inherit;
+    max-width: 900px;
+    min-width: 350px;
+    height: calc(100vh - 161px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    user-select: none;
+}
+
+.login-input-container .input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+}
+
+.login-input-container .label {
+    width: 100px;
+    height: 56px;
+    background-color: #feece6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+}
+
+.login-input-container {
+    margin-top: 32px;
+    height: 56px;
+    border-radius: 8px;
+    border: solid 1px #fcdace;
+    background-color: #fef6f3;
+    display: flex;
+    overflow: hidden;
+}
+
+.password-input-container {
+    margin-top: 10px;
+    height: 56px;
+    border-radius: 8px;
+    border: solid 1px #fcdace;
+    background-color: #fef6f3;
+    display: flex;
+    overflow: hidden;
+}
+
+.login-buttons {
+    margin-top: 30px;
+}
+.login-content>div {
+    text-align: center;
+}
+
+.login-input-container .input>input {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #637280;
+}
+
+a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
+input[type='text'], input[type='password'], input[type='number'], textarea {
+    -webkit-appearance: none;
+}
+
+.password-input-container .input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0px 12px;
+    position: relative;
+}
+
+
+
+.password-input-container .label {
+    width: 100px;
+    height: 56px;
+    background-color: #feece6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111111;
+}
+
+.password-input-container .input>input {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    color: #637280;
+}
+
+.login-input-container .label>img {
+    width: 20px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.login-buttons a {
+    color: rgba(0, 0, 0, 0.65);
+}
+
+button, html [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: button;
+}
+
+.ant-btn-primary {
+    background-color: #ef5222 !important;
+    color: #fff;
+    border: 1px solid #ef5222 !important;
+}
+
+.login-buttons .ant-btn {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.ant-btn-round {
+    height: 32px;
+    padding: 4px 16px;
+    font-size: 14px;
+    border-radius: 32px;
+}
+
+.ant-btn-primary {
+    color: #fff;
+    background: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+
+
+.input input:focus {
+    outline: none;
+    border: none;
+}
